@@ -1,27 +1,40 @@
 "use strict";
-var a = "Hello world";
-var n = 3;
-var b = true;
-var d = null;
-var arr = ['aze', 'aze', 'aze'];
-var user = { firstname: "john", lastname: "Doe" };
-var userInf = { firstname: "John", lastname: "Doe" };
-var date = new Date();
-var cb = function (e) {
-    // syntax pour une fonction qui prend en parametre un MouseEvent et return void
-};
-function printId(id) {
+/*
+const a: string = "Hello world"
+const n: number = 3
+const b: boolean = true
+const d: null = null
+const arr: string[] = ['aze', 'aze', 'aze']
+const user: {firstname: string, lastname?: string} = {firstname: "john", lastname: "Doe"}
+const userInf : {firstname: string, [key: string]: string} = {firstname: "John", lastname: "Doe"}
+const date: Date = new Date();
+const cb: (e: MouseEvent) => void  = (e: MouseEvent): void => {
+        // syntax pour une fonction qui prend en parametre un MouseEvent et return void
+}
+
+const compteur = document.querySelector('#compteur') as HTMLButtonElement
+                // or <HTMLButtonElement>document.querySelector('#compteur')
+
+function printId(id: number | string): void {
     console.log(id.toString());
 }
-/*
-
-const compteur = document.querySelector('#compteur')
-let i = 0;
-
-const increment = (e) => {
-    i++
-    compteur.querySelector('span').innerText = i.toString()
-}
 
 
-compteur.addEventListener('click', increment) */
+*/
+var compteur = document.querySelector('#compteur');
+var i = 0;
+var increment = function (e) {
+    e.preventDefault();
+    i++;
+    var span = compteur === null || compteur === void 0 ? void 0 : compteur.querySelector('span');
+    if (span) {
+        span.innerText = i.toString();
+    }
+};
+compteur === null || compteur === void 0 ? void 0 : compteur.addEventListener('click', increment);
+// possibiliter que compteur soit null, solution 1:
+// if (compteur){
+//     compteur.addEventListener('click', increment)
+// }
+// solution 2:
+//compteur?.addEventListener('click', increment)

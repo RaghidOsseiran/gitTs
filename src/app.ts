@@ -1,3 +1,6 @@
+
+
+/*
 const a: string = "Hello world"
 const n: number = 3
 const b: boolean = true
@@ -10,21 +13,41 @@ const cb: (e: MouseEvent) => void  = (e: MouseEvent): void => {
         // syntax pour une fonction qui prend en parametre un MouseEvent et return void
 }
 
+const compteur = document.querySelector('#compteur') as HTMLButtonElement
+                // or <HTMLButtonElement>document.querySelector('#compteur')
 
-function printId(id: number): void {
+function printId(id: number | string): void {
     console.log(id.toString());
 }
 
-/*
 
-const compteur = document.querySelector('#compteur')
+*/
+
+
+const compteur = document.querySelector('#compteur') as HTMLButtonElement
 let i = 0;
 
-const increment = (e) => {
+const increment = (e: Event) => {
+    e.preventDefault();
     i++
-    compteur.querySelector('span').innerText = i.toString()
+    const span = compteur?.querySelector('span')
+    if (span){
+        span.innerText = i.toString()
+    }
 }
 
 
-compteur.addEventListener('click', increment) */
+compteur?.addEventListener('click', increment)
+
+
+// possibiliter que compteur soit null, solution 1:
+
+// if (compteur){
+//     compteur.addEventListener('click', increment)
+// }
+
+// solution 2:
+//compteur?.addEventListener('click', increment)
+
+ 
 
