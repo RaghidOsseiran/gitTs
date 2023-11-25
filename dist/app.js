@@ -1,5 +1,5 @@
 "use strict";
-var userr = {
+const userr = {
     fistname: "john",
     lastname: "doe",
     age: 32
@@ -8,28 +8,28 @@ function consoleSize(arg) {
     console.log(arg.length);
     return arg;
 }
-var abb = consoleSize(['3', 2]);
+const abb = consoleSize(['3', 2]);
 // example de generics, un des outils les plus puissant en typescript
 function identity(arg) {
     return arg;
 }
-var aa = identity(3);
+const aa = identity(3);
 function first(arg) {
     return arg[0];
 }
-var bb = first(["aze", "cze", "bze"]);
+const bb = first(["aze", "cze", "bze"]);
 // Array aussi est un type generique 
-var cc = ["aze", "wze", 3];
-var a = "Hello world";
-var n = 3;
-var b = true;
-var d = null;
-var d8 = 'string';
-var arr = ['aze', 'aze', 'aze'];
-var user = { firstname: "john", lastname: "Doe" };
-var userInf = { firstname: "John", lastname: "Doe" };
-var date = new Date(); // On cree un object
-var cb = function (e) {
+const cc = ["aze", "wze", 3];
+const a = "Hello world";
+const n = 3;
+const b = true;
+const d = null;
+const d8 = 'string';
+const arr = ['aze', 'aze', 'aze'];
+const user = { firstname: "john", lastname: "Doe" };
+const userInf = { firstname: "John", lastname: "Doe" };
+const date = new Date(); // On cree un object
+const cb = (e) => {
     // syntax pour une fonction qui prend en parametre un MouseEvent et return void
 };
 // const compteur = document.querySelector('#compteur') as HTMLButtonElement
@@ -39,17 +39,17 @@ var cb = function (e) {
 // }
 // const compteur = document.querySelector('#compteur') as HTMLButtonElement // ou ! qui est du narrowing forcer
 // avec un generique :
-var compteur = document.querySelector('#compteur');
-var i = 0;
-var increment = function (e) {
+const compteur = document.querySelector('#compteur');
+let i = 0;
+const increment = (e) => {
     e.preventDefault();
     i++;
-    var span = compteur === null || compteur === void 0 ? void 0 : compteur.querySelector('span');
+    const span = compteur?.querySelector('span');
     if (span) { // narrowing, vue qu'on on entre dans cette condition donc forcement on elimine les possibilites que span soit null ou undefined
         span.innerText = i.toString();
     }
 };
-compteur === null || compteur === void 0 ? void 0 : compteur.addEventListener('click', increment);
+compteur?.addEventListener('click', increment);
 function printId(id) {
     if (typeof id === "number") {
         console.log((id * 3).toString());

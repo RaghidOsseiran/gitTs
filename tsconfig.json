@@ -2,9 +2,11 @@
     "compilerOptions": {
         "outDir": "dist",
         "noEmitOnError": false,
+        "target": "ESNext",
         "strict": true
     },
     "files": [
-        "src/app.ts"
+        "src/app.ts",
+        "src/app2.ts"
     ]
 }
