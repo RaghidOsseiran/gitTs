@@ -1,27 +1,45 @@
 "use strict";
-/*
-const a: string = "Hello world"
-const n: number = 3
-const b: boolean = true
-const d: null = null
-const arr: string[] = ['aze', 'aze', 'aze']
-const user: {firstname: string, lastname?: string} = {firstname: "john", lastname: "Doe"}
-const userInf : {firstname: string, [key: string]: string} = {firstname: "John", lastname: "Doe"}
-const date: Date = new Date(); // On cree un object
-const cb: (e: MouseEvent) => void  = (e: MouseEvent): void => {
-        // syntax pour une fonction qui prend en parametre un MouseEvent et return void
+var userr = {
+    fistname: "john",
+    lastname: "doe",
+    age: 32
+};
+function consoleSize(arg) {
+    console.log(arg.length);
+    return arg;
 }
-
-const compteur = document.querySelector('#compteur') as HTMLButtonElement
-                // or <HTMLButtonElement>document.querySelector('#compteur')
-
-function printId(id: number | string): void {
-    console.log(id.toString());
+var abb = consoleSize(['3', 2]);
+// example de generics, un des outils les plus puissant en typescript
+function identity(arg) {
+    return arg;
 }
-
-
-*/
-var compteur = document.querySelector('#compteur'); // ou ! qui est du narrowing forcer
+var aa = identity(3);
+function first(arg) {
+    return arg[0];
+}
+var bb = first(["aze", "cze", "bze"]);
+// Array aussi est un type generique 
+var cc = ["aze", "wze", 3];
+var a = "Hello world";
+var n = 3;
+var b = true;
+var d = null;
+var d8 = 'string';
+var arr = ['aze', 'aze', 'aze'];
+var user = { firstname: "john", lastname: "Doe" };
+var userInf = { firstname: "John", lastname: "Doe" };
+var date = new Date(); // On cree un object
+var cb = function (e) {
+    // syntax pour une fonction qui prend en parametre un MouseEvent et return void
+};
+// const compteur = document.querySelector('#compteur') as HTMLButtonElement
+//                 // or <HTMLButtonElement>document.querySelector('#compteur')
+// function printId(id: number | string): void {
+//     console.log(id.toString());
+// }
+// const compteur = document.querySelector('#compteur') as HTMLButtonElement // ou ! qui est du narrowing forcer
+// avec un generique :
+var compteur = document.querySelector('#compteur');
 var i = 0;
 var increment = function (e) {
     e.preventDefault();
@@ -40,7 +58,7 @@ function printId(id) {
         console.log(id.toUpperCase());
     }
 }
-var date = new Date();
+// const date: Date = new Date();
 function example(a) {
     if (a instanceof Date) {
         a;
